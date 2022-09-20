@@ -1,18 +1,25 @@
 import azure.cognitiveservices.speech as speechsdk
-
+import os
 speech_config = speechsdk.SpeechConfig(subscription="e18db7ef70cf4e04ab6d346ce693732f", region="brazilsouth")
 audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 
 # The language of the voice that speaks.
-speech_config.speech_synthesis_voice_name='es-AR-ElenaNeuralsi '
+# speech_config.speech_synthesis_voice_name='es-AR-ElenaNeural'
 # speech_config.speech_synthesis_voice_name='es-AR-TomasNeural'
+speech_config.speech_synthesis_voice_name='es-MX-JorgeNeural'
 
+dir_path = "datasets\\microsoft_azure\\"+speech_config.speech_synthesis_voice_name # .wav directory 
+os.mkdir(dir_path)
 
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+with open(r"datasets\transcript0_99.txt", "r", encoding="utf-8") as a_file:
+  for i, line in enumerate(a_file):
+    stripped_line = line.strip()
 
-audio_config = speechsdk.audio.AudioOutputConfig(filename="file2.wav")
-synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-synthesizer.speak_text_async("Y esperaban que el jefe lo diera todo hecho.")
+    audio_config = speechsdk.audio.AudioOutputConfig(
+        filename=f"{dir_path}/{speech_config.speech_synthesis_voice_name}{i}.wav")
+    synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+    synthesizer.speak_text_async(stripped_line)
 
 # # Get text from the console and synthesize to the default speaker.
 # print("Enter some text that you want to speak >")

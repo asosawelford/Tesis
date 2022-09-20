@@ -10,9 +10,13 @@ Speak: Boolean ? If the text has to be read out loud.
 """
 import csv
 
-with open("Datasets/transcript.csv", "r", encoding="utf8") as f:
-    reader = csv.reader(f, delimiter="\t")
-    for i, line in enumerate(reader):
+with open(r"datasets\transcript0_99.txt", "r", encoding="utf-8") as f:
+    for i, line in enumerate(f):
         print (str(line))
-        speak(str(line), "es", save=True, file=f"Tests/text-to-speech/test/audio{i}.mp3", speak=False)
+        speak(str(line), 
+        "es", 
+        save=True, 
+        file=f"Tests/text-to-speech/tts_dev_thomas_{i}.mp3", 
+        speak=False)
 # speak("", "es", save=True, slow=True, file="Tests/text-to-speech/Hola_ale.mp3", speak=False)
+
