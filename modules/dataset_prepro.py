@@ -38,14 +38,14 @@ def split(audio_path):
             chunk = match_target_amplitude(chunk, -22.0)
             chunk.export(f"{dir_path}/{export_path}_{str(i)}.wav", format="wav")
 
+if __name__ == "__main__":
+    min_seconds = 1
+    max_seconds = 15
 
-min_seconds = 1
-max_seconds = 15
-
-audiofile_path = 'sabrina_loquendo.wav'
-dir_path = "datasets\\loquendo\\" + audiofile_path.split(".")[0]  # .wav directory
-# os.mkdir(dir_path)
+    audiofile_path = 'sabrina_loquendo.wav'
+    dir_path = "datasets\\loquendo\\" + audiofile_path.split(".")[0]  # .wav directory
+    # os.mkdir(dir_path)
 
 
-# mp3_to_wav(os.path.join(dir_path, audiofile_path))
-split(os.path.join(dir_path, audiofile_path.split(".")[0] + ".wav"))
+    # mp3_to_wav(os.path.join(dir_path, audiofile_path))
+    split(os.path.join(dir_path, audiofile_path.split(".")[0] + ".wav"))

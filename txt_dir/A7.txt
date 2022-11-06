@@ -1,0 +1,10 @@
+A7_0.mp3: configs\resources\A7\0.mp3
+A7_8.mp3: configs\resources\A7\8.mp3
+A7_2.mp3: configs\resources\A7\2.mp3
+A7_5.mp3: configs\resources\A7\5.mp3
+A7_9.mp3: configs\resources\A7\9.mp3
+A7_6.mp3: configs\resources\A7\6.mp3
+A7_1.mp3: configs\resources\A7\1.mp3
+A7_7.mp3: configs\resources\A7\7.mp3
+A7_3.mp3: configs\resources\A7\3.mp3
+A7_4.mp3: configs\resources\A7\4.mp3
